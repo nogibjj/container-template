@@ -1,25 +1,32 @@
-[![CI](https://github.com/nogibjj/python-template/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/python-template/actions/workflows/cicd.yml)
-## Template for Python projects 
 
-1. First thing to do on launch is to open a new shell and verify virtualenv is sourced.
+## Template for Containers
 
-Things included are:
+### Lesson 2:  Persistent Storage with Containers
 
-* `Makefile`
+* [persisting_data/](https://docs.docker.com/get-started/05_persisting_data/)
 
-* `Pytest`
+Really cool command that randomly creates a number:
 
-* `pandas`
+`docker run -d ubuntu bash -c "shuf -i 1-10000 -n 1 -o /data.txt && tail -f /dev/null"`
 
-* `Pylint`
+Note, you must run `docker ps` to see the daemons", then you run `exec` to invoke running container
 
-* `Dockerfile`
+`docker exec e294cdd4a76e cat /data.txt`
 
-* `GitHub copilot`
+See no file!
 
-* `jupyter` and `ipython` 
+`docker run -it ubuntu ls /`
 
-* A base set of libraries for devops and web
+Create a volume for sqlite:
 
-* `githubactions` 
+`docker volume create todo-db`
+`docker build -t getting-started .`
+
+#first test it
+`docker run -p 3000:3000 getting-started`
+
+#then run it for real!
+
+`docker run -dp 3000:3000 -v todo-db:/etc/todos getting-started`
+
 
