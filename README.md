@@ -1,6 +1,9 @@
 
 ## Template for Containers
 
+### Lesson 3:  Bind mounts
+
+
 ### Lesson 2:  Persistent Storage with Containers
 
 * [persisting_data/](https://docs.docker.com/get-started/05_persisting_data/)
